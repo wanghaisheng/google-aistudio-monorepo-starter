@@ -1,11 +1,31 @@
-<div align="center">
+# Arch-X System Console
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A high-performance, decoupled dashboard architecture built with **Vite**, **React**, and **Express**.
 
-  <h1>Built with AI Studio</h2>
+## Core Principles
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Zero Hardcoding**: All UI strings, infrastructure URLs, and system metadata are managed via a centralized configuration and localization layer.
+- **Decoupled Storage**: Storage logic is abstracted behind a `StorageAdapter` contract, allowing seamless switching between **SQL.js**, **Supabase**, and **Cloudflare D1**.
+- **Pure UI**: React components are presentational and stateless, with side effects and state managed by custom hooks and services.
+- **Selective SSR/ISR**: A custom Express server provides build-time cache warming and on-demand server-side rendering with ISR capabilities.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Tech Stack
 
-</div>
+- **Frontend**: React 19, Tailwind CSS 4, Motion (Framer Motion)
+- **Backend**: Express, Vite (Middleware mode)
+- **Storage**: SQL.js (WASM), Supabase, Cloudflare D1
+- **Design**: Bento Grid Aesthetic
+
+## Getting Started
+
+1. Install dependencies: `npm install`
+2. Start development server: `npm run dev`
+3. Build for production: `npm run build`
+
+## Project Structure
+
+- `/src/core`: Core infrastructure (Config, Constants, I18n, Storage Adapters)
+- `/src/services`: Business logic and API abstractions
+- `/src/hooks`: Application state and side-effect management
+- `/src/components`: Pure UI components
+- `/server.ts`: Custom SSR/ISR server entry point

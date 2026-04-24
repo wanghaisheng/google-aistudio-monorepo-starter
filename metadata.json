@@ -1,0 +1,6 @@
+{
+  "name": "monorepo Decoupled Architecture App",
+  "description": "A highly decoupled application architecture featuring storage adapters (Supabase, SQL.js, D1), service layers, and pure UI components, prepared for Astro migration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

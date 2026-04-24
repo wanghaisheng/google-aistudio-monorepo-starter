@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+    <script>
+      // Protection against rogue polyfills (like formdata-polyfill) that try to overwrite window.fetch
+      (function() {
+        var originalFetch = window.fetch;
+        try {
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return originalFetch; },
+            set: function() { 
+              console.warn('Blocked attempt to overwrite window.fetch. This is usually caused by a polyfill (e.g. formdata-polyfill) that is not needed in this environment.');
+            },
+            configurable: true
+          });
+        } catch (e) {
+          // If we can't define it, it might already be protected
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--ssr-outlet--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
